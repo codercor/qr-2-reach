@@ -1,4 +1,5 @@
 import React from 'react'
+import Stats from "@/app/components/Stats";
 
 export default function Hero() {
     return (
@@ -13,9 +14,10 @@ export default function Hero() {
                     <p className="mb-5">
                         Qr2Reach ile tek bir qr kod ile iletisim bilgilerinizi paylasabilirsiniz.
                     </p>
-                    <button className="btn btn-primary">
-                       Ürünü incele
+                    <button className="btn btn-primary mb-12">
+                        Ürünü incele
                     </button>
+                    <Stats/>
                 </div>
             </div>
         </div>
