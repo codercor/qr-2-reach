@@ -1,7 +1,11 @@
-import {useParams} from "next/navigation";
+import {NextPageContext} from "next";
 
-const ProfilePage = () => {
-    const {id} = useParams<{ id: string }>();
+const ProfilePage = async ({params}: { params: { id: string } }) => {
+    const {id} = params;
+
+
+    let content;
+
     return <div>Profile Page {id}</div>;
 }
 
