@@ -1,23 +1,24 @@
 import {PrismaClient} from "@prisma/client";
-import RegisterProfile from "@/app/[id]/components/RegisterProfile";
-import ContentProfile from "@/app/[id]/components/ContentProfile";
+import RegisterProfile from "@/app/[qr]/components/RegisterProfile";
+import ContentProfile from "@/app/[qr]/components/ContentProfile";
 
 const prisma = new PrismaClient();
 
-const ProfilePage = async ({params}: { params: { id: string } }) => {
-    const {id} = params;
+const ProfilePage = async ({params}: { params: { qr: string } }) => {
+    const {qr} = params;
     let content;
     try {
         let user = await prisma.user.findUniqueOrThrow({
-            where: {id},
+            where: {qr},
         })
         content = <ContentProfile user={user} />
     } catch (e) {
+        console.log("e",e)
         content = <RegisterProfile/>
     }
 
     return <div>
-        <p> {id} </p>
+        <p> {qr} </p>
         {content}
     </div>;
 }
